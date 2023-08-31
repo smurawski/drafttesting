@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drafttesting
+  labels:
+    app: drafttesting
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drafttesting
+  template:
+    metadata:
+      labels:
+        app: drafttesting
+    spec:
+      containers:
+        - name: drafttesting
+          image: acrxms72d.azurecr.io/drafttesting:v1
+          ports:
+            - containerPort: 8080
